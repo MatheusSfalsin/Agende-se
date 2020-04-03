@@ -1,0 +1,35 @@
+/* .modalInput {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    border-bottom: 1px solid #007bff;
+    border-radius: 0px;
+    outline: 0;
+} */
+
+.form-label-group .modalInput{
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    border-bottom: 1px solid #007bff;
+    border-radius: 0px;
+    outline: 0;
+}
+
+.form-control .modalInput {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    border-bottom: 1px solid #007bff;
+    border-radius: 0px;
+    outline: 0;
+}
+
+.typeEventRadio input{
+    margin-left: 100px ;
+}
+
+@media (min-width: 576px){
+    .modal-dialog {
+        max-width: 500px;
+        margin: 6.75rem auto;
+    }
+   
+}

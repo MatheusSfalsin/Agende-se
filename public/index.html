@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agende-se</title>
+
+  <!-- FIREBASE -->
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-messaging.js"></script>
+
+  <!--Demais  -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/dd1d4c274b.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script> -->
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="css/calendar.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/login.css">
+  <link rel="stylesheet" href="./css/modal.css">
+  <link rel="stylesheet" href="./css/front.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+
+</head>
+
+
+<body>
+  <div class='mainComponentes' id='mainComponentes'>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg static-top navTopo">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/agende-se-116d9.appspot.com/o/calendar.png?alt=media&token=b8bb4cf6-d905-4615-a957-09a45dea082b"
+            alt="" style="width: 50px; height: 50px;">
+        </a>
+        <button class="navbar-toggler" id='menuResponsiveOption' onclick='menuResponsiveOption()' type="button"
+          data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- text titulo -->
+        <h3 id='titlesite'>Agende-se</h3>
+        <!-- PERFIL USUARIO -->
+        <div class="chip" id='chipUser' style="display: none;">
+          <img src="./images/img_avatar.png" id='imgUser' alt="imgUser" width="96" height="96">
+          <span id='nameUserProfile'></span>
+        </div>
+
+        <!-- Botão para acionar modal -->
+        <button type="button" id='btnCreateEventMain' class="btn btn-primary" onclick="criarBodyModal()"
+          data-toggle="modal" style="display: none;" data-target="#modalEvento">
+          Criar Nova tarefa
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive" style="visibility: hidden;">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Serviços</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Preços</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sobre nós</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" onclick="sairDaConta()">Sair da Conta</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id='telaDeLoginEcad'>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+              <div class="card-body">
+                <h5 class="card-title text-center" id='titleCad'>Login</h5>
+                <div class="form-signin" id="form-signin">
+                  <div class="form-label-group">
+                    <input type="email" id="emailInput" class="form-control" placeholder="Email address" autofocus>
+                    <label for="inputEmail">Endereço de Email</label>
+                  </div>
+
+                  <div class="form-label-group">
+                    <input type="password" id="passwordInput" class="form-control" placeholder="Password">
+                    <label for="inputPassword">Senha</label>
+                  </div>
+
+                  <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">Relembrar Senha</label>
+                  </div>
+                  <button class="btn btn-lg btn-primary btn-block text-uppercase"
+                    id="authEmailPassButton">Entrar</button>
+                  <span class="badge badge-pill d-flex justify-content-center registrarUser" id="criarUser"
+                    onclick="criaEstruturaCad()">Registrar-se</span>
+                  <!-- <button class="btn btn-lg btn-secondary btn-block text-uppercase" id="createUserButton">Registrar-se</button> -->
+                  <hr class="my-4">
+                  <button class="btn btn-lg btn-google btn-block text-uppercase" id="authGoogleButton"><i
+                      class="fab fa-google mr-2"></i> Entrar com Google</button>
+                  <button class="btn btn-lg btn-facebook btn-block text-uppercase" id="authFacebookButton"><i
+                      class="fab fa-facebook-f mr-2"></i> Entrar com Facebook</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pagCenter tableHTML" id='tableCalendar' style="display: none;"></div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalEvento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header" id="headerModal">
+            <h5 class="modal-title" id="titleModalHeard">Criar Evento</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+              <span aria-hidden="true" onclick="closeModalFunc()">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id='bodyModal'></div>
+          <div class="modal-footer" id="footerModal">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+              onclick="closeModalFunc()">Fechar</button>
+            <button type="button" class="btn btn-success" id="btcreateEventUser">Salvar Eventos</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagCenter listaDeTarefas" id='listaDeTarefas' style="display: none; ">
+      <div class="topListaDeTarefas">
+        <center>
+          <h3>Seus Eventos</h3>
+        </center>
+        <div class="eventsDef">
+          <span class='leftDef' id="leftDef" onclick="colorEventsDefConfirm()" style=" background: #1d6cff;border-bottom: 12px solid #1d6cff;">
+            Definidas</span>
+          <span class='rightDef' id="rightDef" onclick="colorEventsDef()" >Não Definidas</span>
+        </div>
+      </div>
+
+      <div class="filtroEventos">
+        <span class='spanFiltroDia badge'>Dia</span>
+        <span class='spanFiltroMes badge'>Mês</span><br>
+
+        <button class="btn  btn-light" id="dimunuirData"><i class="fas fa-chevron-left"></i></button>
+
+        <input type="text" class="" id="inputDiaAtualFiltro" onblur="onBlurSaveDiaAtual()" maxlength="2">
+        <input type="text" class="" id="inputMesAtualFiltro" onblur="onBlurSaveMesAtual()" maxlength="2">
+
+        <button class="btn  btn-light" id="aumentarData"><i class="fas fa-chevron-right"></i></button>
+
+        <button class="btn btn-light mesbtn" id="mesbtnFiltro">Mês</button>
+        <button class="btn btn-light todaybtn" id="diabtnFiltro">Dia</button>
+      </div>
+      <div class="meu-hr">
+        <hr>
+        <span id="infoDayFiltro"></span>
+        <hr>
+      </div>
+
+      <div class="divConteudoEventos">
+        <ul class="list-group" id='conteudoEventos'>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- <h1>TESTE</h1> -->
+  <!-- CODIGOS -->
+  <script src="js/connectionFirebase.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/eventos.js"></script>
+  <script src="js/tarefas.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/front.js"></script>
+  <script src="js/database.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/notificationUser.js"></script>
+
+</body>
+
+</html>

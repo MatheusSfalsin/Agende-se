@@ -1,0 +1,239 @@
+
+/* width */
+
+
+@media screen and (max-width: 4000px) {
+    .tableElementos{
+        width: 1000px;
+        
+    }
+    .corpoTabela {
+        padding-bottom: 12.3%
+    }
+    .listaDeTarefas{
+        left: 12%;
+    }
+}
+
+@media screen and (max-width: 2200px) {
+    .listaDeTarefas{
+        left: 10%;
+    }
+    
+}
+
+@media screen and (max-width: 1770px) {
+    .listaDeTarefas{
+        left: 5%;
+    }
+    
+}
+
+
+
+@media screen and (max-width: 1480px) {
+    .tableElementos{
+        width: 950px;
+        
+    }
+    .corpoTabela {
+        padding-bottom: 12.9%
+    }
+    
+}
+
+@media screen and (max-width: 1380px) {
+    .tableElementos{
+        width: 900px;
+        
+    }
+    .corpoTabela {
+        padding-bottom: 13.7%
+    }
+    
+}
+
+@media screen and (max-width: 1290px) {
+    .tableElementos{
+        width: 820px;
+        
+    }
+    .corpoTabela {
+        padding-bottom: 15%
+    }
+
+    .listaDeTarefas{
+        left: 30px;
+    }
+    
+}
+
+
+@media screen and (max-width: 1170px) {
+    .tableElementos{
+        width: 700px;
+    }
+    .corpoTabela {
+        padding-bottom: 17.5%
+    }
+    
+}
+@media screen and (max-width: 1000px) {
+    .tableElementos{
+        width: 600px;
+    }
+    .corpoTabela {
+        padding-bottom: 20.5%
+    }
+    
+}
+
+@media screen and (max-width: 860px) {
+    .tableElementos{
+        display: none;
+    }
+
+    .tableHTML {
+        display: none;
+    }
+    .listaDeTarefas{
+        width: 90%;
+        top: 90px;
+        height: 82%;
+        left: 5%;
+    }
+    #btnCreateEventMain{
+        left: 50px;
+    }
+
+    .navbar-brand{
+        display: none;
+    }
+
+    .chip{
+        margin-left: 0px;
+        margin-right: 15px;
+        font-size: 15px;
+    }
+
+    .card-signin{
+        margin-top: 1rem!important;
+    }
+    
+}
+
+@media screen and (max-width: 550px) {
+    .listaDeTarefas{
+        top: 110px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .tableElementos{
+        display: none;
+    }
+    .listaDeTarefas{
+        width: 90%;
+        top: 110PX;
+        height: 82%;
+        left: 5%;
+    }
+    #btnCreateEventMain{
+        left: 50px;
+    }
+
+    .navbar-brand{
+        display: none;
+    }
+
+    .chip{
+        margin-left: 0px;
+        margin-right: 0px;
+        font-size: 15px;
+    }
+}
+
+
+@media screen and (max-height: 2000px) {
+
+    .listaDeTarefas{
+        height: 85%;
+    }
+    
+}
+
+@media screen and (max-height: 900px) {
+    .corpoTabela {
+        padding-bottom: 11.0%;
+    }
+    
+}
+
+
+@media screen and (max-height: 830px) {
+    .corpoTabela {
+        padding-bottom: 10.6%;
+    }
+    
+}
+
+@media screen and (max-height: 800px) {
+    .corpoTabela {
+        padding-bottom: 9.5%;
+    }
+    
+}
+
+@media screen and (max-height: 770px) {
+    .corpoTabela {
+        padding-bottom: 8.7%;
+    }
+    .listaDeTarefas{
+        height: 80%;
+    }
+    
+}
+
+@media screen and (max-height: 730px) {
+    .corpoTabela {
+        padding-bottom: 8%;
+    }
+    .infoEventDay{
+        width: 32px;
+        height: 32px;
+        font-size: 22px;
+    }
+    
+}
+@media screen and (max-height: 680px) {
+    .corpoTabela {
+        padding-bottom: 7.2%;
+    }
+    .infoEventDay{
+        width: 32px;
+        height: 32px;
+        font-size: 22px;
+    }
+    
+}
+@media screen and (max-height: 600px) {
+    .corpoTabela {
+        padding-bottom: 5.2%;
+    }
+    .infoEventDay{
+        width: 32px;
+        height: 32px;
+        font-size: 22px;
+    }
+    .listaDeTarefas{
+        height: 76%;
+    }
+    
+}
+
+
+/* @media screen and (max-width: 1170px) {
+    .tableElementos{
+        width: 700px;
+    }
+    
+} */

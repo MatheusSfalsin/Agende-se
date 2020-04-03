@@ -1,0 +1,207 @@
+body{
+    background-color:#ffffff ;
+    /* display: flex;
+    min-height: 100vh; */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+    /* align-items: center;
+    justify-content:  center;
+    flex-direction: column; */
+}
+
+.mainComponentes{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #eaeaea;
+}
+
+.pagCenter{
+    max-width: 1300px;
+    width: 100%;
+    height: 86%;
+    margin: 0 auto;
+}
+
+.navTopo{
+    background-color: rgb(33, 37, 41);
+}
+
+.nav-link{
+    color: white;
+    padding: .2rem 1rem;
+    font-weight: 500;
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .nav-link:hover {
+        border-bottom: 1px solid white;
+    }
+}
+
+.nav-link:hover{
+    color: white;
+}
+
+.navbar-toggler {
+    color: rgb(255, 255, 255);
+    border-color: rgba(255,255,255,.1);
+}
+
+.listaDeTarefas::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+.listaDeTarefas::-webkit-scrollbar {
+    width: 5px;
+    background: #F4F4F4;
+}
+.listaDeTarefas::-webkit-scrollbar-thumb {
+    background: #dad7d7;
+}
+
+
+.listaDeTarefas{
+    position: absolute;
+    top: 90px;
+    width: 25%;
+    left: 5%;
+    border: 1px solid #cfcfcf;
+    border-radius: 12px;
+    background: white;
+    z-index: 100;
+    transition: 0.3s;
+    overflow:auto; 
+}
+
+.listaDeTarefas .topListaDeTarefas{
+    position: relative;
+    top: 0px;
+    padding-top: 20px;
+    background: #4384fb;
+    color: white;
+    border-radius: 8px;
+    /* padding-bottom: 20px; */
+    margin-bottom: 0px;
+}
+
+.eventsDef{
+    text-align: center;
+    margin-top: 10px;
+    display: grid;
+    /* gap: 20px; */
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.eventsDef span{
+    padding-top: 15px;
+    border-bottom: 12px solid #4384fb;
+    border-radius: 8px;
+    
+}
+
+.listaDeTarefas ul{
+    position: relative;
+    top: 0px;
+    border: 0px solid;
+}
+.list-group-item{
+    position: relative;
+    border: 0px solid #cfcfcf;
+    border-left: 3px solid #4e73df;
+    border-radius: 4px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding-left: 5px;
+    z-index: 50;
+    animation-fill-mode: forwards;
+}
+
+.spanTarefa{
+    padding-right: 10px;
+    border-right: 1px solid #4e73df;
+}
+
+.list-group-item:hover {
+    /* background: black; */
+    animation: moveEvent 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.listEventsModal{
+    /* color: rgb(107, 163, 247); */
+    list-style: circle;
+}
+/* .blockMoveGroup-Item{
+    animation: none;
+} */
+/* .list-group:hover{
+    background: black;
+    animation: moveEvent 1s;
+} */
+
+@keyframes moveEvent {
+    from {padding-left: 10px;}
+    to {padding-left: 100px;}
+}
+
+.confirmRecordEvent{
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    display: none;
+    color: rgb(23, 194, 0);
+    cursor: pointer;
+}
+.editRecordEvent{
+    top: 20px;
+    left: 40px;
+    position: absolute;
+    display: none;
+    color: rgb(46, 146, 228);
+    cursor: pointer;
+}
+.removeRecordEvent{
+    position: absolute;
+    top: 20px;
+    left: 70px;
+    display: none;
+    color: rgb(250, 66, 66);
+    cursor: pointer;
+}
+
+/* teste */
+
+@-webkit-keyframes fadeIn {
+    0% { opacity: 0.2; }
+    100% { opacity: 1; } 
+}
+
+@-moz-keyframes fadeIn {
+    0% { opacity: 0.2;}
+    100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+    0% { opacity: 0.2; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0.2; }
+    100% { opacity: 1; }
+}
+
+.fadeIn {
+    -webkit-animation: fadeIn 1s ease-in-out;
+    -moz-animation: fadeIn 1s ease-in-out;
+    -o-animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 0.7s ease-in-out;
+} 
+
