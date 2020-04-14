@@ -5,6 +5,7 @@ var nav = document.getElementById('navbarResponsive')
 var card = document.getElementById('chipUser')
 var btn = document.getElementById('btnCreateEventMain')
 var titlesite = document.getElementById('titlesite')
+
 function mostraHeardSite() {
     nav.style.visibility = 'visible';
     card.style.display = 'block';
@@ -14,36 +15,37 @@ function mostraHeardSite() {
 
 }
 
-window.onresize = function(){
-    if(window.innerWidth < 860){
+window.onresize = function () {
+    this.console.log(document.getElementById('frameAnnotation').style.display == 'grid')
+    if (window.innerWidth < 860 || document.getElementById('frameAnnotation').style.display == 'grid') {
         document.getElementById('tableCalendar').style.display = 'none';
-    }else{
+    } else {
         document.getElementById('tableCalendar').style.display = 'inherit';
     }
 }
 
-function menuResponsiveOption(){
+function menuResponsiveOption() {
     let windowWidth = window.innerWidth;
     let list = document.getElementById('listaDeTarefas')
-    if(list.style.top == '90px' || list.style.top == '110px' || !list.style.top){
+    if (list.style.top == '90px' || list.style.top == '110px' || !list.style.top) {
         list.style.top = '270px'
-    }else if(windowWidth < 550){
+    } else if (windowWidth < 550) {
         list.style.top = '110px'
-    }else{
+    } else {
         list.style.top = '90px'
     }
-    
+
 }
 
-function viewDayEvents(this_){
+function viewDayEvents(this_) {
     let pai = this_.parentNode
     let diaMes = pai.innerText.substr(2)
     bodyModal.innerHTML = '';
 
-    dadosEventosAndamento.forEach(dado =>{
-        if(Number(dado.data.substr(0,2)) == diaMes && Number(dado.data.substr(3,2)) == Number(mesAtual) && Number(dado.data.substr(6)) == Number(anoAtual) ){
-            bodyModal.innerHTML += 
-            `<li class="listEventsModal" style='animation: none;'>
+    dadosEventosAndamento.forEach(dado => {
+        if (Number(dado.data.substr(0, 2)) == diaMes && Number(dado.data.substr(3, 2)) == Number(mesAtual) && Number(dado.data.substr(6)) == Number(anoAtual)) {
+            bodyModal.innerHTML +=
+                `<li class="listEventsModal" style='animation: none;'>
                 <span class="spanTarefa">${dado.data}</span> 
                 <span class="spanTarefa">${dado.hora} Hrs</span> 
                 <span>${dado.descricao}</span>
@@ -52,15 +54,15 @@ function viewDayEvents(this_){
     })
 }
 
-function runInfoFiltroDay(){
+function runInfoFiltroDay() {
     let ft = document.getElementById('infoDayFiltro')
 
     let tipoFtl = filtroDeEventos()
     var dtFiltro = new Date(`${tipoFtl.ano}-${tipoFtl.mes}-${tipoFtl.dia}`)
     dtFiltro = dataFormatadCasual(dtFiltro)
-    
+
     let info = '';
-    
+
     if (tipoFtl.tipo == 1) {
         info = dtFiltro;
     } else if (tipoFtl.tipo == 2) {
@@ -73,10 +75,10 @@ function runInfoFiltroDay(){
 }
 runInfoFiltroDay()
 
-function colorEventsDefConfirm(permisao = false){
+function colorEventsDefConfirm(permisao = false) {
     leftDef = document.getElementById('leftDef')
     rightDef = document.getElementById('rightDef')
-    if(leftDef.style.background == '' || permisao){
+    if (leftDef.style.background == '' || permisao) {
         leftDef.style.background = '#1d6cff'
         leftDef.style.borderBottom = '12px solid #1d6cff'
         rightDef.style.background = ''
@@ -84,16 +86,16 @@ function colorEventsDefConfirm(permisao = false){
         controleDeEventos(dadosEventos, '')
     }
 }
-    
-function colorEventsDef(permisao = false){
+
+function colorEventsDef(permisao = false) {
     leftDef = document.getElementById('leftDef')
     rightDef = document.getElementById('rightDef')
-    if(rightDef.style.background == '' || permisao){
+    if (rightDef.style.background == '' || permisao) {
         rightDef.style.background = '#1d6cff'
         rightDef.style.borderBottom = '12px solid #1d6cff'
         leftDef.style.background = ''
         leftDef.style.borderBottom = ''
-        controleDeTarefas(dadosTerefas,true);
+        controleDeTarefas(dadosTerefas, true);
     }
 }
 // function escondeHeardSite() {

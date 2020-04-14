@@ -1,4 +1,5 @@
 var bodyModal = document.getElementById('bodyModal')
+var btSave = document.getElementById('btcreateEventUser')
 function criarBodyModal() {
     bodyModal.innerHTML = '';
 
@@ -32,21 +33,24 @@ function criarBodyModal() {
                 <label for="hrEvento">Hora do Evento</label>
             </div>
             `
+
+    document.getElementById('titleModalHeard').innerText = 'Criar Evento'
+    btSave.onclick = 'createEventAndTask()'
 }
 
 function apagaBodyModal() {
     bodyModal.innerHTML = '';
 }
 
-criarBodyModal() 
+criarBodyModal()
 
 
-function desabilitaCamposDateModal(){
+function desabilitaCamposDateModal() {
     console.log('teste')
     document.getElementById('dataModal').disabled = true
     document.getElementById('horaModal').disabled = true
 }
-function habilitaCamposDateModal(){
+function habilitaCamposDateModal() {
     document.getElementById('dataModal').disabled = false
     document.getElementById('horaModal').disabled = false
 }

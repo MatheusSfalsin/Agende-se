@@ -1,235 +1,246 @@
-
 /* width */
 
-
 @media screen and (max-width: 4000px) {
-    .tableElementos{
+    .tableElementos {
         width: 1000px;
-        
     }
     .corpoTabela {
         padding-bottom: 12.3%
     }
-    .listaDeTarefas{
+    .listaDeTarefas {
         left: 12%;
     }
 }
 
 @media screen and (max-width: 2200px) {
-    .listaDeTarefas{
+    .listaDeTarefas {
         left: 10%;
     }
-    
 }
 
 @media screen and (max-width: 1770px) {
-    .listaDeTarefas{
+    .listaDeTarefas {
         left: 5%;
     }
-    
 }
 
-
-
 @media screen and (max-width: 1480px) {
-    .tableElementos{
+    .tableElementos {
         width: 950px;
-        
     }
     .corpoTabela {
         padding-bottom: 12.9%
     }
-    
 }
 
 @media screen and (max-width: 1380px) {
-    .tableElementos{
+    .tableElementos {
         width: 900px;
-        
     }
     .corpoTabela {
         padding-bottom: 13.7%
     }
-    
 }
 
 @media screen and (max-width: 1290px) {
-    .tableElementos{
+    .tableElementos {
         width: 820px;
-        
     }
     .corpoTabela {
         padding-bottom: 15%
     }
-
-    .listaDeTarefas{
+    .listaDeTarefas {
         left: 30px;
     }
-    
 }
 
-
 @media screen and (max-width: 1170px) {
-    .tableElementos{
+    .tableElementos {
         width: 700px;
     }
     .corpoTabela {
         padding-bottom: 17.5%
     }
-    
 }
+
 @media screen and (max-width: 1000px) {
-    .tableElementos{
+    .tableElementos {
         width: 600px;
     }
     .corpoTabela {
         padding-bottom: 20.5%
     }
-    
 }
 
 @media screen and (max-width: 860px) {
-    .tableElementos{
+    .tableElementos {
         display: none;
     }
-
     .tableHTML {
         display: none;
     }
-    .listaDeTarefas{
+    .listaDeTarefas {
         width: 90%;
         top: 90px;
         height: 82%;
         left: 5%;
     }
-    #btnCreateEventMain{
+    #btnCreateEventMain {
         left: 50px;
     }
-
-    .navbar-brand{
+    .navbar-brand {
         display: none;
     }
-
-    .chip{
+    .chip {
         margin-left: 0px;
         margin-right: 15px;
         font-size: 15px;
     }
-
-    .card-signin{
+    .card-signin {
         margin-top: 1rem!important;
     }
-    
+    #inputNotes {
+        width: 300px;
+    }
 }
 
 @media screen and (max-width: 550px) {
-    .listaDeTarefas{
+    .listaDeTarefas {
         top: 110px;
     }
+    #inputNotes {
+        width: 200px;
+    }
 }
+
+@media screen and (max-width: 450px) {
+    .listaDeTarefas {
+        top: 110px;
+    }
+    #inputNotes {
+        width: 200px;
+        left: 25px!important;
+    }
+    .createNotes {
+        left: 20px!important;
+        width: 125px!important;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #inputNotes {
+        width: 200px;
+        left: 25px!important;
+    }
+    .createNotes {
+        left: 24%!important;
+        width: 150px!important
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #inputNotes {
+        width: 86%;
+        left: 25px!important;
+        top: 15px;
+    }
+    .createNotes {
+        left: 85px!important;
+        width: 125px!important;
+    }
+}
+
 @media screen and (max-width: 320px) {
-    .tableElementos{
+    .tableElementos {
         display: none;
     }
-    .listaDeTarefas{
+    .listaDeTarefas {
         width: 90%;
         top: 110PX;
         height: 82%;
         left: 5%;
     }
-    #btnCreateEventMain{
+    #btnCreateEventMain {
         left: 50px;
     }
-
-    .navbar-brand{
+    .navbar-brand {
         display: none;
     }
-
-    .chip{
+    .chip {
         margin-left: 0px;
         margin-right: 0px;
         font-size: 15px;
     }
 }
 
-
 @media screen and (max-height: 2000px) {
-
-    .listaDeTarefas{
+    .listaDeTarefas {
         height: 85%;
     }
-    
 }
 
 @media screen and (max-height: 900px) {
     .corpoTabela {
         padding-bottom: 11.0%;
     }
-    
 }
-
 
 @media screen and (max-height: 830px) {
     .corpoTabela {
         padding-bottom: 10.6%;
     }
-    
 }
 
 @media screen and (max-height: 800px) {
     .corpoTabela {
         padding-bottom: 9.5%;
     }
-    
 }
 
 @media screen and (max-height: 770px) {
     .corpoTabela {
         padding-bottom: 8.7%;
     }
-    .listaDeTarefas{
+    .listaDeTarefas {
         height: 80%;
     }
-    
 }
 
 @media screen and (max-height: 730px) {
     .corpoTabela {
         padding-bottom: 8%;
     }
-    .infoEventDay{
+    .infoEventDay {
         width: 32px;
         height: 32px;
         font-size: 22px;
     }
-    
 }
+
 @media screen and (max-height: 680px) {
     .corpoTabela {
         padding-bottom: 7.2%;
     }
-    .infoEventDay{
+    .infoEventDay {
         width: 32px;
         height: 32px;
         font-size: 22px;
     }
-    
 }
+
 @media screen and (max-height: 600px) {
     .corpoTabela {
         padding-bottom: 5.2%;
     }
-    .infoEventDay{
+    .infoEventDay {
         width: 32px;
         height: 32px;
         font-size: 22px;
     }
-    .listaDeTarefas{
+    .listaDeTarefas {
         height: 76%;
     }
-    
 }
-
 
 /* @media screen and (max-width: 1170px) {
     .tableElementos{

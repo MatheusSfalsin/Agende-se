@@ -28,14 +28,25 @@ function closeModalFunc() {
     inputUpdateEventData.value = '';
 }
 
-btcreateEventUser.addEventListener('click', function () {
+// setTimeout(() => {
+//     btcreateEventUser.setAttribute("onclick", "createEventAndTask();");
+// }, 3000)
+
+btcreateEventUser.addEventListener('click', createEventAndTask)
+
+function createEventAndTask() {
+    console.log(inputUpdateEvent.value)
     if (inputUpdateEvent.value == '') {
         createEvent();
+
+    } else if (document.getElementById('frameAnnotation').style.display == 'grid') {
+
     } else {
+        console.log(inputUpdateEvent.value)
         editRecord()
     }
 
-})
+}
 
 function createEvent() {
     let user = firebase.auth().currentUser;
@@ -69,7 +80,7 @@ async function buscaTerefas() {
         firebase.database().ref().child(`listaDeTarefas/${user.uid}`).orderByChild('hora')
             .on('value', function (snapshot) {
                 if (verificaLogin()) {
-                    executaEstruturaTarefas(snapshot,true);
+                    executaEstruturaTarefas(snapshot, true);
                     colorEventsDef(true)
                 }
             })
@@ -105,7 +116,6 @@ function editarRegistro(id, descricao, data, hora) {
     // console.log(converteFormatoPadraoAoSQL(data))
     document.getElementById('dataModal').value = converteFormatoPadraoAoSQL(data)
     document.getElementById('horaModal').value = hora
-    titleModalHeard
     document.getElementById('titleModalHeard').innerText = 'Atualizar Evento'
 }
 

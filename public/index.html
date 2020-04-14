@@ -28,13 +28,14 @@
   <link rel="stylesheet" href="./css/modal.css">
   <link rel="stylesheet" href="./css/front.css">
   <link rel="stylesheet" href="./css/responsive.css">
+  <link rel="stylesheet" href="./css/annotation.css">
 
 </head>
 
 
 <body>
   <div class='mainComponentes' id='mainComponentes'>
-    <!-- Navigation -->
+    <!-- Navigation  - NAVIGATION TOP -->
     <nav class="navbar navbar-expand-lg static-top navTopo">
       <div class="container">
         <a class="navbar-brand" href="#">
@@ -65,10 +66,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive" style="visibility: hidden;">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Inicio</a>
+              <a class="nav-link" href="#" onclick="returnHome()">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Serviços</a>
+              <a class="nav-link" href="javascript:;" onclick="showIframeAnnotation();">Anotações</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Preços</a>
@@ -123,6 +124,8 @@
         </div>
       </div>
     </div>
+
+    <!-- taks Calendar  -->
     <div class="pagCenter tableHTML" id='tableCalendar' style="display: none;"></div>
 
     <!-- Modal -->
@@ -140,21 +143,24 @@
           <div class="modal-footer" id="footerModal">
             <button type="button" class="btn btn-secondary" data-dismiss="modal"
               onclick="closeModalFunc()">Fechar</button>
-            <button type="button" class="btn btn-success" id="btcreateEventUser">Salvar Eventos</button>
+            <button type="button" class="btn btn-success" id="btcreateEventUser"
+              onclick="createEventAndTask()">Salvar</button>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- task list -->
     <div class="pagCenter listaDeTarefas" id='listaDeTarefas' style="display: none; ">
       <div class="topListaDeTarefas">
         <center>
           <h3>Seus Eventos</h3>
         </center>
         <div class="eventsDef">
-          <span class='leftDef' id="leftDef" onclick="colorEventsDefConfirm()" style=" background: #1d6cff;border-bottom: 12px solid #1d6cff;">
+          <span class='leftDef' id="leftDef" onclick="colorEventsDefConfirm()"
+            style=" background: #1d6cff;border-bottom: 12px solid #1d6cff;">
             Definidas</span>
-          <span class='rightDef' id="rightDef" onclick="colorEventsDef()" >Não Definidas</span>
+          <span class='rightDef' id="rightDef" onclick="colorEventsDef()">Não Definidas</span>
         </div>
       </div>
 
@@ -185,9 +191,26 @@
 
     </div>
 
+
+    <div class='pagCenter' id="frameAnnotation" style="display: none">
+      <div class="containerAnnotation">
+
+        <button class="createNotes" onclick="createAnnotation()">Adicionar</button>
+        <input class='input' type="text" id="inputNotes" placeholder="Nome da Anotação">
+
+        <div class="containerNotes">
+          <ul class='mainNotas' id='idNotas'>
+
+          </ul>
+        </div>
+
+      </div>
+
+
+    </div>
+
   </div>
 
-  <!-- <h1>TESTE</h1> -->
   <!-- CODIGOS -->
   <script src="js/connectionFirebase.js"></script>
   <script src="js/main.js"></script>
@@ -196,9 +219,10 @@
   <script src="js/tarefas.js"></script>
   <script src="js/modal.js"></script>
   <script src="js/front.js"></script>
-  <script src="js/database.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/notificationUser.js"></script>
+  <script src="js/annotation.js"></script>
+  <script src="js/database.js"></script>
 
 </body>
 

@@ -126,6 +126,12 @@ function somaMais1Data(data) {
 
 }
 
+function converteHora() {
+    let date = new Date()
+    return `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+
+}
+
 // CONTROLE DE DATAS NO SISTEMA 
 function onBlurSaveDiaAtual() {
     if (diaInput.value >= 1 && diaInput.value <= numeroDias) {
@@ -256,25 +262,25 @@ function controleAlertas(eventosDia) {
     try {
         var time = (new Date(elementoSelect.dataEhora)).getTime();
         elementoSelect = setTimeout(function () {
-            
+
             for (let index = 1; index < 6; index++) {
-                setTimeout(function(){
+                setTimeout(function () {
                     audio.play();
                     audio.muted = false;
-                },index*2000)
+                }, index * 2000)
 
-                if(index == 3){
+                if (index == 3) {
                     controleAlertas(eventosDia)
                 }
             }
-            
-            
+
+
         }, time - Date.now());
 
-        
+
     } catch (error) {
     }
-   
+
 
 
 }

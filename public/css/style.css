@@ -1,35 +1,39 @@
-body{
-    background-color:#ffffff ;
+/* * {
+    font-family: 'Roboto', sans-serif;
+} */
+
+body {
+    background-color: #ffffff;
     /* display: flex;
     min-height: 100vh; */
     width: 100%;
     margin: 0;
     padding: 0;
-    height: 100%; 
+    height: 100%;
     /* align-items: center;
     justify-content:  center;
     flex-direction: column; */
 }
 
-.mainComponentes{
+.mainComponentes {
     position: absolute;
     width: 100%;
     height: 100%;
     background: #eaeaea;
 }
 
-.pagCenter{
+.pagCenter {
     max-width: 1300px;
     width: 100%;
     height: 86%;
     margin: 0 auto;
 }
 
-.navTopo{
+.navTopo {
     background-color: rgb(33, 37, 41);
 }
 
-.nav-link{
+.nav-link {
     color: white;
     padding: .2rem 1rem;
     font-weight: 500;
@@ -41,28 +45,29 @@ body{
     }
 }
 
-.nav-link:hover{
+.nav-link:hover {
     color: white;
 }
 
 .navbar-toggler {
     color: rgb(255, 255, 255);
-    border-color: rgba(255,255,255,.1);
+    border-color: rgba(255, 255, 255, .1);
 }
 
-.listaDeTarefas::-webkit-scrollbar-track {
+.listaDeTarefas, .containerNotes ::-webkit-scrollbar-track {
     background-color: #F4F4F4;
 }
-.listaDeTarefas::-webkit-scrollbar {
+
+.listaDeTarefas, .containerNotes::-webkit-scrollbar {
     width: 5px;
     background: #F4F4F4;
 }
-.listaDeTarefas::-webkit-scrollbar-thumb {
+
+.listaDeTarefas, .containerNotes::-webkit-scrollbar-thumb {
     background: #dad7d7;
 }
 
-
-.listaDeTarefas{
+.listaDeTarefas {
     position: absolute;
     top: 90px;
     width: 25%;
@@ -72,10 +77,10 @@ body{
     background: white;
     z-index: 100;
     transition: 0.3s;
-    overflow:auto; 
+    overflow: auto;
 }
 
-.listaDeTarefas .topListaDeTarefas{
+.listaDeTarefas .topListaDeTarefas {
     position: relative;
     top: 0px;
     padding-top: 20px;
@@ -86,7 +91,7 @@ body{
     margin-bottom: 0px;
 }
 
-.eventsDef{
+.eventsDef {
     text-align: center;
     margin-top: 10px;
     display: grid;
@@ -98,19 +103,19 @@ body{
     cursor: pointer;
 }
 
-.eventsDef span{
+.eventsDef span {
     padding-top: 15px;
     border-bottom: 12px solid #4384fb;
     border-radius: 8px;
-    
 }
 
-.listaDeTarefas ul{
+.listaDeTarefas ul {
     position: relative;
     top: 0px;
     border: 0px solid;
 }
-.list-group-item{
+
+.list-group-item {
     position: relative;
     border: 0px solid #cfcfcf;
     border-left: 3px solid #4e73df;
@@ -123,7 +128,7 @@ body{
     animation-fill-mode: forwards;
 }
 
-.spanTarefa{
+.spanTarefa {
     padding-right: 10px;
     border-right: 1px solid #4e73df;
 }
@@ -134,24 +139,30 @@ body{
     animation-fill-mode: forwards;
 }
 
-.listEventsModal{
+.listEventsModal {
     /* color: rgb(107, 163, 247); */
     list-style: circle;
 }
+
 /* .blockMoveGroup-Item{
     animation: none;
 } */
+
 /* .list-group:hover{
     background: black;
     animation: moveEvent 1s;
 } */
 
 @keyframes moveEvent {
-    from {padding-left: 10px;}
-    to {padding-left: 100px;}
+    from {
+        padding-left: 10px;
+    }
+    to {
+        padding-left: 100px;
+    }
 }
 
-.confirmRecordEvent{
+.confirmRecordEvent {
     position: absolute;
     top: 20px;
     left: 10px;
@@ -159,7 +170,8 @@ body{
     color: rgb(23, 194, 0);
     cursor: pointer;
 }
-.editRecordEvent{
+
+.editRecordEvent {
     top: 20px;
     left: 40px;
     position: absolute;
@@ -167,7 +179,8 @@ body{
     color: rgb(46, 146, 228);
     cursor: pointer;
 }
-.removeRecordEvent{
+
+.removeRecordEvent {
     position: absolute;
     top: 20px;
     left: 70px;
@@ -179,23 +192,39 @@ body{
 /* teste */
 
 @-webkit-keyframes fadeIn {
-    0% { opacity: 0.2; }
-    100% { opacity: 1; } 
+    0% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @-moz-keyframes fadeIn {
-    0% { opacity: 0.2;}
-    100% { opacity: 1; }
+    0% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @-o-keyframes fadeIn {
-    0% { opacity: 0.2; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeIn {
-    0% { opacity: 0.2; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .fadeIn {
@@ -203,5 +232,13 @@ body{
     -moz-animation: fadeIn 1s ease-in-out;
     -o-animation: fadeIn 1s ease-in-out;
     animation: fadeIn 0.7s ease-in-out;
-} 
+}
 
+#frameAnnotation {
+    position: relative;
+    top: 25px;
+    width: 100%;
+    height: 88%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
