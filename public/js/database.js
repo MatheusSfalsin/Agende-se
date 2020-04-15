@@ -162,8 +162,6 @@ function removedRecord(id, data) {
     } catch (error) {
         console.log(error)
     }
-
-
 }
 
 function confirmRecord(id, data) {

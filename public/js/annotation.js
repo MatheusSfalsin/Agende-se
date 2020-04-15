@@ -41,8 +41,6 @@ function createAnnotation() {
 }
 
 function getAnnotation() {
-
-
   try {
     let user = firebase.auth().currentUser;
     firebase.database().ref().child(`anotacoes/${user.uid}`)
@@ -54,15 +52,11 @@ function getAnnotation() {
   } catch (error) {
     setTimeout(getAnnotation, 1000)
   }
-
-
-
 }
 
 getAnnotation()
 
 function formataDadosNota(snapshot) {
-
   let list = document.getElementById('idNotas')
   list.innerHTML = ''
   dadosAnnotation = [];
@@ -76,7 +70,6 @@ function formataDadosNota(snapshot) {
         dataEhora: item.val().dataEhora,
       })
   })
-
   dadosAnnotation = orderPorhoraAnnotation(dadosAnnotation)
 
   let count = 0
@@ -84,12 +77,22 @@ function formataDadosNota(snapshot) {
     list.innerHTML += `
     <li class="liNotes" onclick="showValueAnnotation(this)" data-toggle="modal" data-target="#modalEvento">
             <input type="hidden" value="${count}">
-            <div class="removeNote"><i class="fas fa-trash-alt"></i></div>
+            <div class="removeNote" onclick="removeAnnotation('${item.key}')"><i class="fas fa-trash-alt"></i></div>
             <div class="editNote"><i class="far fa-edit"></i></div>
             ${item.title}
     </li>`
     count++;
   })
+}
+
+function removeAnnotation(keyNote) {
+  try {
+    let user = firebase.auth().currentUser;
+    let registro = firebase.database().ref(`eventos/${user.uid}/${keyNote}`)
+    registro.remove();
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 
