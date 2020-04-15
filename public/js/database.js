@@ -35,14 +35,11 @@ function closeModalFunc() {
 btcreateEventUser.addEventListener('click', createEventAndTask)
 
 function createEventAndTask() {
-    console.log(inputUpdateEvent.value)
     if (inputUpdateEvent.value == '') {
-        createEvent();
-
-    } else if (document.getElementById('frameAnnotation').style.display == 'grid') {
-
+        if (document.getElementById('frameAnnotation').style.display != 'grid') {
+            createEvent();
+        }
     } else {
-        console.log(inputUpdateEvent.value)
         editRecord()
     }
 
@@ -162,6 +159,8 @@ function removedRecord(id, data) {
     } catch (error) {
         console.log(error)
     }
+
+
 }
 
 function confirmRecord(id, data) {

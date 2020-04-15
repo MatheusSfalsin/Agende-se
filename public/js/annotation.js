@@ -75,8 +75,9 @@ function formataDadosNota(snapshot) {
   let count = 0
   dadosAnnotation.forEach((item) => {
     list.innerHTML += `
-    <li class="liNotes" onclick="showValueAnnotation(this)" data-toggle="modal" data-target="#modalEvento">
-            <input type="hidden" value="${count}">
+    <li class = 'liNotes'>
+            <input type="hidden" id='idAnnotationData${count}' value="${count}">
+            <div style="width: 80%; position: absolute; height: 65px;" onclick="showValueAnnotation('idAnnotationData${count}')"  data-toggle="modal" data-target="#modalEvento"></div>
             <div class="removeNote" onclick="removeAnnotation('${item.key}')"><i class="fas fa-trash-alt"></i></div>
             <div class="editNote"><i class="far fa-edit"></i></div>
             ${item.title}
@@ -88,7 +89,7 @@ function formataDadosNota(snapshot) {
 function removeAnnotation(keyNote) {
   try {
     let user = firebase.auth().currentUser;
-    let registro = firebase.database().ref(`eventos/${user.uid}/${keyNote}`)
+    let registro = firebase.database().ref(`anotacoes/${user.uid}/${keyNote}`)
     registro.remove();
   } catch (error) {
     console.log(error)
@@ -97,8 +98,8 @@ function removeAnnotation(keyNote) {
 
 
 function showValueAnnotation(element) {
-  console.log(element)
-  let elem = (dadosAnnotation[element.children[0].value])
+  let dataNumber = document.getElementById(element).value
+  let elem = (dadosAnnotation[dataNumber])
 
 
   document.getElementById('titleModalHeard').innerText = elem.title
