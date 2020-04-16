@@ -25,13 +25,17 @@ function createAnnotationDatabase(title = '', text = '') {
     dtformat = dataFormatadCasual(dt);
 
     let horaAtual = converteHora();
+    if (title === '') {
+      firebase.database().ref().child(`anotacoes/${user.uid}`)
+        .push({
+          title: title,
+          value: text,
+          dataEhora: dtformat + " " + horaAtual
+        });
+    } else {
+      alert('Coloque um titulo para sua anotação.')
+    }
 
-    firebase.database().ref().child(`anotacoes/${user.uid}`)
-      .push({
-        title: title,
-        value: text,
-        dataEhora: dtformat + " " + horaAtual
-      });
   } else {
 
     let registro = firebase.database().ref(`anotacoes/${user.uid}/${keyEdit}`)
@@ -174,3 +178,5 @@ function orderPorhoraAnnotation(array) {
   return a
 
 }
+
+
