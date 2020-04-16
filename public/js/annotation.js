@@ -3,6 +3,8 @@ var ifr = document.getElementById('frameAnnotation');
 var calendar = document.getElementById('tableCalendar');
 var lists = document.getElementById('listaDeTarefas');
 
+var keyEdit = "";
+
 function returnHome() {
   ifr.style.display = 'none'
   calendar.style.display = 'inherit'
@@ -17,17 +19,29 @@ function showIframeAnnotation() {
 
 function createAnnotationDatabase(title = '', text = '') {
   let user = firebase.auth().currentUser;
-  dt = new Date(somaMais1Data(dataParaFormatoSQL(new Date())))
-  dtformat = dataFormatadCasual(dt);
+  console.log(keyEdit)
+  if (keyEdit === '') {
+    dt = new Date(somaMais1Data(dataParaFormatoSQL(new Date())))
+    dtformat = dataFormatadCasual(dt);
 
-  let horaAtual = converteHora();
+    let horaAtual = converteHora();
 
-  firebase.database().ref().child(`anotacoes/${user.uid}`)
-    .push({
-      title: title,
-      value: text,
-      dataEhora: dtformat + " " + horaAtual
-    });
+    firebase.database().ref().child(`anotacoes/${user.uid}`)
+      .push({
+        title: title,
+        value: text,
+        dataEhora: dtformat + " " + horaAtual
+      });
+  } else {
+
+    let registro = firebase.database().ref(`anotacoes/${user.uid}/${keyEdit}`)
+    registro.update({
+      title: document.getElementById('inputNotes').value
+    })
+
+  }
+
+  prepareteEditRemove();
 
 }
 
@@ -79,7 +93,7 @@ function formataDadosNota(snapshot) {
             <input type="hidden" id='idAnnotationData${count}' value="${count}">
             <div style="width: 80%; position: absolute; height: 65px;" onclick="showValueAnnotation('idAnnotationData${count}')"  data-toggle="modal" data-target="#modalEvento"></div>
             <div class="removeNote" onclick="removeAnnotation('${item.key}')"><i class="fas fa-trash-alt"></i></div>
-            <div class="editNote"><i class="far fa-edit"></i></div>
+            <div class="editNote" onclick="prepareteEditShow('${item.title}','${item.key}')"><i class="far fa-edit"></i></div>
             ${item.title}
     </li>`
     count++;
@@ -94,6 +108,30 @@ function removeAnnotation(keyNote) {
   } catch (error) {
     console.log(error)
   }
+}
+
+function prepareteEditShow(text = '', key = '') {
+  inputNotes = document.getElementById('inputNotes')
+  addBtn = document.getElementById('createNotes')
+  cancelBt = document.getElementById('cancelEditNote')
+  cancelBt.style.display = 'inline'
+  addBtn.innerText = 'Atualizar'
+  inputNotes.value = text
+  keyEdit = key;
+
+
+}
+
+function prepareteEditRemove() {
+  inputNotes = document.getElementById('inputNotes')
+  addBtn = document.getElementById('createNotes')
+  cancelBt = document.getElementById('cancelEditNote')
+
+  cancelBt.style.display = 'none'
+  addBtn.innerText = 'Adicionar'
+  inputNotes.value = ''
+  keyEdit = "";
+
 }
 
 
@@ -136,5 +174,3 @@ function orderPorhoraAnnotation(array) {
   return a
 
 }
-
-

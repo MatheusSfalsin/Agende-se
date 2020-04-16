@@ -125,7 +125,6 @@ function editarRegistro(id, descricao, data, hora) {
 // }
 
 function editRecord() {
-    console.log('passssou')
     let user = firebase.auth().currentUser;
     let desc = document.getElementById('UserNameModal')
     let data = document.getElementById('dataModal')
@@ -133,7 +132,6 @@ function editRecord() {
     dt = new Date(somaMais1Data(data.value))
     dtformat = dataFormatadCasual(dt);
     dtSql = dataParaFormatoSQL(dt)
-    console.log(`eventos/${user.uid}/${dtSql}/` + inputUpdateEvent.value)
 
     let registro = firebase.database().ref(`eventos/${user.uid}/${dtSql}/` + inputUpdateEvent.value)
     registro.update(evento(user.uid, desc.value, dtformat, hora.value))
