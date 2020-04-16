@@ -25,7 +25,7 @@ function createAnnotationDatabase(title = '', text = '') {
     dtformat = dataFormatadCasual(dt);
 
     let horaAtual = converteHora();
-    if (title === '') {
+    if (title !== '') {
       firebase.database().ref().child(`anotacoes/${user.uid}`)
         .push({
           title: title,
