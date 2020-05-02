@@ -12,6 +12,8 @@
 
   > A principal funcionalidade se encontra na tela de inicio, onde temos o controle de através de um calendário em que podemos ver a quantidade de tarefas de cada dia do mes selecionado.
 
+  > É possivel visualizar as tarefas no canto esquerdo em que podemos filtrar por dia, mês ou ver todos os eventos disponíveis. Marcar como concluído, editar ou excluir um evento também é possível.
+
   ### :camera: Exemplo:
 
   ![png1](github/principal.png)
