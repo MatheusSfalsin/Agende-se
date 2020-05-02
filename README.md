@@ -10,13 +10,13 @@
 
 - Funcionalidades:
 
-  > A principal funcionalidade se encontra na tela de inicio, onde temos o controle de através de um calendário em que podemos ver a quantidade de tarefas de cada dia do mes selecionado;
+  > A principal funcionalidade se encontra na tela de inicio, onde temos o controle de através de um calendário em que podemos ver a quantidade de tarefas de cada dia do mes selecionado.
 
   ### :camera: Exemplo:
 
   ![png1](github/principal.png)
 
-  > Podemos fazer preview rápido das tarefas do dia
+  > Podemos fazer preview rápido das tarefas do dia.
 
   ### :camera: Exemplo:
 
@@ -26,7 +26,7 @@
 
   ### :camera: Exemplo:
 
-  ![png2](github/anotation.png) ![png2](github/anotation.png)
+  ![png2](github/anotation.png) ![png2](github/editAnotation.png)
 
   > Podemos definir eventos com data definida ou indefinidas, o qual o último é essencial quando for um evento de longo prazo sem uma data definida de execução.
 
