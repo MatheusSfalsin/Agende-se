@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="./css/front.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
     <link rel="stylesheet" href="./css/annotation.css" />
+    <link rel="stylesheet" href="./css/NavSide.css" />
   </head>
 
   <body>
@@ -79,6 +80,19 @@
             />
             <span id="nameUserProfile"></span>
           </div>
+
+          <span
+            class="openConfig"
+            id="openConfig"
+            style="
+              font-size: 30px;
+              cursor: pointer;
+              color: #fff;
+              display: none;
+            "
+            onclick="openNavSide()"
+            >&#9776;</span
+          >
 
           <!-- Botão para acionar modal -->
           <button
@@ -344,6 +358,41 @@
       </div>
     </div>
 
+    <div id="sideNav" class="sidenav">
+      <div class="closebtns" onclick="closeNavSide()">&times;</div>
+
+      <h3>Configurações</h3>
+
+      <div class="contentConfig">
+        <div class="objetivoConfig">
+          <span>Objetivos semanais</span>
+          <div>
+            <input maxlength="18" id="descObjetivo" type="text" />
+            <input id="numDaysWeek" type="number" />
+            <button onclick="createObjetivo()">
+              <i class="fas fa-check-circle"></i>
+            </button>
+          </div>
+
+          <span
+            style="
+              position: relative;
+              top: 18px;
+              text-align: center;
+              font-weight: bold;
+              font-size: 15px;
+            "
+            >Descrição | Total | Total Semana</span
+          >
+          <ul id="listObjs">
+            <li>Curso</li>
+            <li>Faculdade</li>
+            <li>SP</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <!-- CODIGOS -->
     <script src="js/connectionFirebase.js"></script>
     <script src="js/main.js"></script>
@@ -355,6 +404,7 @@
     <script src="js/auth.js"></script>
     <script src="js/notificationUser.js"></script>
     <script src="js/annotation.js"></script>
+    <script src="js/objetivos.js"></script>
     <script src="js/database.js"></script>
   </body>
 </html>

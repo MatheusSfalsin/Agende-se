@@ -29,7 +29,7 @@
         width: 950px;
     }
     .corpoTabela {
-        padding-bottom: 12.9%
+        padding-bottom: 9.9%;
     }
 }
 
@@ -38,7 +38,7 @@
         width: 900px;
     }
     .corpoTabela {
-        padding-bottom: 13.7%
+        padding-bottom: 10.4%;
     }
 }
 
@@ -59,7 +59,7 @@
         width: 700px;
     }
     .corpoTabela {
-        padding-bottom: 17.5%
+        padding-bottom: 13.4%;
     }
 }
 
@@ -68,7 +68,7 @@
         width: 600px;
     }
     .corpoTabela {
-        padding-bottom: 20.5%
+        padding-bottom: 15.6%;
     }
 }
 
@@ -110,6 +110,10 @@
     }
     #inputNotes {
         width: 200px;
+    }
+    .openConfig {
+        left: 85%!important;
+        top: 50px;
     }
 }
 
@@ -193,13 +197,13 @@
 
 @media screen and (max-height: 800px) {
     .corpoTabela {
-        padding-bottom: 9.5%;
+        padding-bottom: 7.9%;
     }
 }
 
 @media screen and (max-height: 770px) {
     .corpoTabela {
-        padding-bottom: 8.7%;
+        padding-bottom: 6.6%;
     }
     .listaDeTarefas {
         height: 80%;
@@ -208,7 +212,7 @@
 
 @media screen and (max-height: 730px) {
     .corpoTabela {
-        padding-bottom: 8%;
+        padding-bottom: 6%;
     }
     .infoEventDay {
         width: 32px;
@@ -219,7 +223,7 @@
 
 @media screen and (max-height: 680px) {
     .corpoTabela {
-        padding-bottom: 7.2%;
+        padding-bottom: 5.3%;
     }
     .infoEventDay {
         width: 32px;

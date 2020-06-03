@@ -13,6 +13,20 @@ body {
     border-radius: 1rem;
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
     margin-top: 7rem!important;
+    transition: 0.7s;
+}
+
+#telaDeLoginEcad {
+    background: #eaeaea;
+}
+
+@media screen and (max-height: 900px) {
+    .card-signin {
+        margin-top: 0.5rem!important;
+    }
+    .mb-5, .my-5 {
+        margin-bottom: 0.5rem!important;
+    }
 }
 
 .card-signin .card-title {
@@ -135,7 +149,7 @@ body {
     }
 }
 
-.registrarUser{
+.registrarUser {
     margin-top: 15px;
     color: #007bff;
     font-size: 16px;

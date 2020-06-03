@@ -1,105 +1,124 @@
 // FOTO PERFIL
 
-// 
-var nav = document.getElementById('navbarResponsive')
-var card = document.getElementById('chipUser')
-var btn = document.getElementById('btnCreateEventMain')
-var titlesite = document.getElementById('titlesite')
+//
+var nav = document.getElementById("navbarResponsive");
+var card = document.getElementById("chipUser");
+var NavConfig = document.getElementById("openConfig");
+var btn = document.getElementById("btnCreateEventMain");
+var titlesite = document.getElementById("titlesite");
 
 function mostraHeardSite() {
-    nav.style.visibility = 'visible';
-    card.style.display = 'block';
-    btn.style.display = 'grid';
-    titlesite.style.display = 'none';
-
-
+  nav.style.visibility = "visible";
+  card.style.display = "block";
+  NavConfig.style.display = "block";
+  btn.style.display = "grid";
+  titlesite.style.display = "none";
 }
 
 window.onresize = function () {
-    this.console.log(document.getElementById('frameAnnotation').style.display == 'grid')
-    if (window.innerWidth < 860 || document.getElementById('frameAnnotation').style.display == 'grid') {
-        document.getElementById('tableCalendar').style.display = 'none';
-    } else {
-        document.getElementById('tableCalendar').style.display = 'inherit';
-    }
-}
+  // this.console.log(document.getElementById('frameAnnotation').style.display == 'grid')
+  let user = firebase.auth().currentUser;
+  console.log(
+    document.getElementById("frameAnnotation").style.display == "grid" || !user
+  );
+  if (
+    window.innerWidth < 860 ||
+    document.getElementById("frameAnnotation").style.display == "grid" ||
+    !user
+  ) {
+    document.getElementById("tableCalendar").style.display = "none";
+  } else {
+    document.getElementById("tableCalendar").style.display = "inherit";
+  }
+};
 
 function menuResponsiveOption() {
-    let windowWidth = window.innerWidth;
-    let list = document.getElementById('listaDeTarefas')
-    if (list.style.top == '90px' || list.style.top == '110px' || !list.style.top) {
-        list.style.top = '270px'
-    } else if (windowWidth < 550) {
-        list.style.top = '110px'
-    } else {
-        list.style.top = '90px'
-    }
-
+  let windowWidth = window.innerWidth;
+  let list = document.getElementById("listaDeTarefas");
+  if (
+    list.style.top == "90px" ||
+    list.style.top == "110px" ||
+    !list.style.top
+  ) {
+    list.style.top = "270px";
+  } else if (windowWidth < 550) {
+    list.style.top = "110px";
+  } else {
+    list.style.top = "90px";
+  }
 }
 
 function viewDayEvents(this_) {
-    let pai = this_.parentNode
-    let diaMes = pai.innerText.substr(2)
-    bodyModal.innerHTML = '';
+  let pai = this_.parentNode;
+  let diaMes = pai.innerText.substr(2);
+  bodyModal.innerHTML = "";
 
-    dadosEventosAndamento.forEach(dado => {
-        if (Number(dado.data.substr(0, 2)) == diaMes && Number(dado.data.substr(3, 2)) == Number(mesAtual) && Number(dado.data.substr(6)) == Number(anoAtual)) {
-            bodyModal.innerHTML +=
-                `<li class="listEventsModal" style='animation: none;'>
+  dadosEventosAndamento.forEach((dado) => {
+    if (
+      Number(dado.data.substr(0, 2)) == diaMes &&
+      Number(dado.data.substr(3, 2)) == Number(mesAtual) &&
+      Number(dado.data.substr(6)) == Number(anoAtual)
+    ) {
+      bodyModal.innerHTML += `<li class="listEventsModal" style='animation: none;'>
                 <span class="spanTarefa">${dado.data}</span> 
                 <span class="spanTarefa">${dado.hora} Hrs</span> 
                 <span>${dado.descricao}</span>
             </li>`;
-        }
-    })
+    }
+  });
 }
 
 function runInfoFiltroDay() {
-    let ft = document.getElementById('infoDayFiltro')
+  let ft = document.getElementById("infoDayFiltro");
 
-    let tipoFtl = filtroDeEventos()
-    var dtFiltro = new Date(`${tipoFtl.ano}-${tipoFtl.mes}-${tipoFtl.dia}`)
-    dtFiltro = dataFormatadCasual(dtFiltro)
+  let tipoFtl = filtroDeEventos();
+  var dtFiltro = new Date(`${tipoFtl.ano}-${tipoFtl.mes}-${tipoFtl.dia}`);
+  dtFiltro = dataFormatadCasual(dtFiltro);
 
-    let info = '';
+  let info = "";
 
-    if (tipoFtl.tipo == 1) {
-        info = dtFiltro;
-    } else if (tipoFtl.tipo == 2) {
-        info = dtFiltro.substr(3);
-    } else {
-        info = `Todos Eventos`
-    }
+  if (tipoFtl.tipo == 1) {
+    info = dtFiltro;
+  } else if (tipoFtl.tipo == 2) {
+    info = dtFiltro.substr(3);
+  } else {
+    info = `Todos Eventos`;
+  }
 
-    ft.innerText = info
+  ft.innerText = info;
 }
-runInfoFiltroDay()
+runInfoFiltroDay();
 
 function colorEventsDefConfirm(permisao = false) {
-    leftDef = document.getElementById('leftDef')
-    rightDef = document.getElementById('rightDef')
-    if (leftDef.style.background == '' || permisao) {
-        leftDef.style.background = '#1d6cff'
-        leftDef.style.borderBottom = '12px solid #1d6cff'
-        rightDef.style.background = ''
-        rightDef.style.borderBottom = ''
-        controleDeEventos(dadosEventos, '')
-    }
+  leftDef = document.getElementById("leftDef");
+  rightDef = document.getElementById("rightDef");
+  if (leftDef.style.background == "" || permisao) {
+    leftDef.style.background = "#1d6cff";
+    leftDef.style.borderBottom = "12px solid #1d6cff";
+    rightDef.style.background = "";
+    rightDef.style.borderBottom = "";
+    controleDeEventos(dadosEventos, "");
+  }
 }
 
 function colorEventsDef(permisao = false) {
-    leftDef = document.getElementById('leftDef')
-    rightDef = document.getElementById('rightDef')
-    if (rightDef.style.background == '' || permisao) {
-        rightDef.style.background = '#1d6cff'
-        rightDef.style.borderBottom = '12px solid #1d6cff'
-        leftDef.style.background = ''
-        leftDef.style.borderBottom = ''
-        controleDeTarefas(dadosTerefas, true);
-    }
+  leftDef = document.getElementById("leftDef");
+  rightDef = document.getElementById("rightDef");
+  if (rightDef.style.background == "" || permisao) {
+    rightDef.style.background = "#1d6cff";
+    rightDef.style.borderBottom = "12px solid #1d6cff";
+    leftDef.style.background = "";
+    leftDef.style.borderBottom = "";
+    controleDeTarefas(dadosTerefas, true);
+  }
 }
-// function escondeHeardSite() {
-//     nav.style.visibility = 'hidden';
-//     card.style.display = 'none';
-//     btn.style.display = 'none';
-// }
+
+function openNavSide() {
+  document.getElementById("sideNav").style.width = "250px";
+  document.getElementsByTagName("body")[0].style.marginLeft = "250px";
+}
+
+function closeNavSide() {
+  document.getElementById("sideNav").style.width = "0";
+  document.getElementsByTagName("body")[0].style.marginLeft = "0";
+}

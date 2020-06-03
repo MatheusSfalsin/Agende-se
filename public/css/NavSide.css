@@ -1,0 +1,96 @@
+.openConfig {
+  position: absolute;
+  left: 30px;
+}
+
+.sidenav h3 {
+  color: #FFF;
+  text-align: center;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav .closebtns:hover {
+  color: #FFF;
+}
+
+.sidenav .closebtns {
+  color: #f1f1f1b0;
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  transition: 0.2s;
+}
+
+body {
+  transition: margin-left .5s;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+/* objetivos */
+
+.objetivoConfig {
+  padding: 10px;
+  color: #FFF;
+}
+
+.objetivoConfig div {
+  flex-direction: row;
+}
+
+.objetivoConfig button {
+  height: 30px;
+  background: transparent;
+  border: 0px;
+  color: #FFF;
+  width: 30px;
+  position: relative;
+  font-size: 25px;
+  top: 4px;
+}
+
+.objetivoConfig input {
+  width: 60%;
+  padding: 5px;
+  margin-top: 10px;
+  height: 35px;
+}
+
+.objetivoConfig input+input {
+  width: 20%;
+}
+
+.objetivoConfig ul {
+  padding-top: 30px;
+  padding-left: 20px;
+}
