@@ -1,3 +1,5 @@
+var dataObjetivos = [];
+
 function createObjetivo() {
   let user = firebase.auth().currentUser;
   let desc = document.getElementById("descObjetivo").value;
@@ -49,6 +51,8 @@ function listaObjetivos(snapshot) {
 
   list.innerHTML = "";
 
+  dataObjetivos = [];
+
   snapshot.forEach((itema) => {
     data = {
       key: itema.key,
@@ -58,6 +62,14 @@ function listaObjetivos(snapshot) {
       situacao: itema.val().situacao,
     };
 
+    dataObjetivos.push(data);
+
     list.innerHTML += `<li>${data.desc} | ${data.pt} | ${data.ps} </li>`;
   });
+}
+
+function setDateProxObj() {
+  let data = document.getElementById("dataModal");
+
+  dt = new Date(somaMais1Data(O));
 }
