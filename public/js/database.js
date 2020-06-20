@@ -109,7 +109,7 @@ async function buscaTerefas() {
         }
       });
   } catch (error) {
-    // setTimeout(buscaTerefas, 1000);
+    setTimeout(buscaTerefas, 1000);
   }
 }
 buscaTerefas();

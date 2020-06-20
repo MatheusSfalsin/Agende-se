@@ -22,8 +22,11 @@ function controleDeTarefas(item = dadosTerefas) {
   item.forEach((item) => {
     if (item.situacao) {
       montaTarefas(item);
+      console.log("test");
     }
   });
+
+  console.log(item);
 }
 
 function montaTarefas(item) {
