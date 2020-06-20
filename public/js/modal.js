@@ -48,7 +48,9 @@ function criarBodyModal() {
 
     document.getElementById("titleModalHeard").innerText = "Criar Evento";
     btSave.onclick = "createEventAndTask()";
-  } catch (error) {}
+  } catch (error) {
+    console.log("error Modal: " + error);
+  }
 }
 
 function apagaBodyModal() {
@@ -58,7 +60,6 @@ function apagaBodyModal() {
 criarBodyModal();
 
 function desabilitaCamposDateModal() {
-  console.log("teste");
   document.getElementById("dataModal").disabled = true;
   document.getElementById("horaModal").disabled = true;
 }

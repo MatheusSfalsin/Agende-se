@@ -109,7 +109,7 @@ async function buscaTerefas() {
         }
       });
   } catch (error) {
-    setTimeout(buscaTerefas, 1000);
+    // setTimeout(buscaTerefas, 1000);
   }
 }
 buscaTerefas();
@@ -181,7 +181,7 @@ function removedRecord(id, data) {
   try {
     let dtft = converteFormatoPadraoAoSQL(data);
     let user = firebase.auth().currentUser;
-    console.log(`eventos/${user.uid}/${dtft}/` + id);
+    // console.log(`eventos/${user.uid}/${dtft}/` + id);
     let registro = firebase.database().ref(`eventos/${user.uid}/${dtft}/` + id);
     registro.remove();
   } catch (error) {
@@ -193,7 +193,7 @@ function confirmRecord(id, data) {
   try {
     let dtft = converteFormatoPadraoAoSQL(data);
     let user = firebase.auth().currentUser;
-    console.log(`eventos/${user.uid}/${dtft}/` + id);
+    // console.log(`eventos/${user.uid}/${dtft}/` + id);
     let registro = firebase
       .database()
       .ref(`eventos/${user.uid}/${dtft}/` + id + "/situacao");
@@ -206,7 +206,7 @@ function confirmRecord(id, data) {
 function confirmTarefa(id) {
   try {
     let user = firebase.auth().currentUser;
-    console.log(`listaDeTarefas/${user.uid}/${id}id/situacao`);
+    // console.log(`listaDeTarefas/${user.uid}/${id}id/situacao`);
     let registro = firebase
       .database()
       .ref(`listaDeTarefas/${user.uid}/${id}/situacao`);
