@@ -73,30 +73,21 @@ function validaCreateUserEmail() {
 
 // funcção para login de google e facebook
 function signIn(provider) {
-  persisterAuth()
-    .then(() => {
-      firebase
-        .auth()
-        .signInWithPopup(provider)
-        .then(function (result) {
-          var token = result.credential.accessToken;
-          runServices();
-          fotoUser(
-            result.additionalUserInfo.profile.picture,
-            result.user.displayName
-          );
-          visibleLoginECad();
-        })
-        .catch(function (error) {
-          console.log(error);
-          alert("Falha na autenticação!");
-        });
+  firebase
+    .auth()
+    .signInWithPopup(provider)
+    .then(function (result) {
+      var token = result.credential.accessToken;
+      runServices();
+      fotoUser(
+        result.additionalUserInfo.profile.picture,
+        result.user.displayName
+      );
+      visibleLoginECad();
     })
     .catch(function (error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(errorMessage);
+      console.log(error);
+      alert("Falha na autenticação!");
     });
 }
 
@@ -218,6 +209,6 @@ function criaEstruturaLoginMain(nameUser, confirmPass, hr, tipo) {
         </div>`;
 }
 
-function persisterAuth() {
-  return firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
-}
+// function persisterAuth() {
+//   return firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+// }

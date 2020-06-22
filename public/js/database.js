@@ -3,7 +3,7 @@ inputUpdateEvent = document.getElementById("inputUpdateEvent");
 inputUpdateEventData = document.getElementById("inputUpdateEventData");
 
 //objeto evento
-function evento(idUser = "", desc, data, hora, dataEhora, objetivo) {
+function evento(idUser = "", desc, data, hora, dataEhora, objetivo = 0) {
   return {
     idUser: idUser,
     descricao: desc,
@@ -158,6 +158,8 @@ function editRecord() {
   let desc = document.getElementById("UserNameModal");
   let data = document.getElementById("dataModal");
   let hora = document.getElementById("horaModal");
+  let objetivo = document.getElementById("objetivoSelect");
+
   dt = new Date(somaMais1Data(data.value));
   dtformat = dataFormatadCasual(dt);
   dtSql = dataParaFormatoSQL(dt);
@@ -165,7 +167,16 @@ function editRecord() {
   let registro = firebase
     .database()
     .ref(`eventos/${user.uid}/${dtSql}/` + inputUpdateEvent.value);
-  registro.update(evento(user.uid, desc.value, dtformat, hora.value));
+  registro.update(
+    evento(
+      user.uid,
+      desc.value,
+      dtformat,
+      hora.value,
+      dtformat,
+      objetivoSelect.value
+    )
+  );
 
   if (inputUpdateEventData.value != dtformat) {
     removedRecord(inputUpdateEvent.value, inputUpdateEventData.value);

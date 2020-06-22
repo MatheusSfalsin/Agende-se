@@ -364,10 +364,23 @@
 
       <div class="contentConfig">
         <div class="objetivoConfig">
-          <span>Objetivos semanais</span>
+          <span>
+            <strong>Objetivos semanais</strong>
+            <input
+              type="color"
+              id="selectColorObject"
+              name="favcolor"
+              value="#e74a3b"
+            /><br />
+          </span>
           <div>
-            <input maxlength="18" id="descObjetivo" type="text" />
-            <input id="numDaysWeek" type="number" />
+            <input
+              placeholder="Ex: Faculdade"
+              maxlength="18"
+              id="descObjetivo"
+              type="text"
+            />
+            <input placeholder="6" id="numDaysWeek" type="number" />
             <button onclick="createObjetivo()">
               <i class="fas fa-check-circle"></i>
             </button>

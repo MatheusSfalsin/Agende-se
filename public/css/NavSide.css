@@ -57,6 +57,23 @@ body {
   }
 }
 
+#selectColorObject {
+  width: 70px;
+  margin-left: 10px;
+  padding: 0px;
+  border: 0;
+  margin-top: 0px;
+  /* border-radius: 0px; */
+  background: transparent;
+}
+
+.objetivoConfig span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* justify-content: center; */
+}
+
 /* objetivos */
 
 .objetivoConfig {
